@@ -1,0 +1,24 @@
+<div>
+    <button *ngIf="adult" class="btn btn-danger reinicio" (click)="restartSession()">Reiniciar Sesión</button>
+
+    <div class="date">
+        <form [formGroup]="formGroup">
+            <h4 >Introduce tu fecha de nacimiento.</h4><br>
+            <input class="datePicker" type="date" formControlName="date"><br>
+            <button type="button" class="btn btn-primary button" (click)="onClick()">Continuar</button>
+        </form>
+    </div>
+    <div  *ngIf="adult" class="row row-cols-8 row-cols-md-6 g-4 mWi">
+        <div *ngFor="let serie of seriesA; let i = index" class="col">
+            <div class="card" div *ngIf="i + 1 !== seriesA.lenght" #theLastList>
+                <img src={{API_IMG_URL+serie.poster_path}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">{{serie?.vote_average}}</p>
+                    <h5 class="card-title">{{serie?.title}}</h5>
+                    <p class="card-text">{{serie?.release_date | date }}</p>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+
